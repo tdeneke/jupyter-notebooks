@@ -34,6 +34,7 @@ rm -rf $HOME/.node-gyp
 cp /tmp/src/jupyter_notebook_config.py /opt/app-root/etc/
 cp /tmp/src/jupyter_kernel_gateway_config.py /opt/app-root/etc/
 cp /tmp/src/httpd-webdav.conf /opt/app-root/etc/
+cp /tmp/src/voila.json /opt/app-root/etc/
 
 # This S2I assemble script is only used when creating the custom image.
 # For when running the image, or using it as a S2I builder, we use a second

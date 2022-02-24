@@ -6,6 +6,7 @@ c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.port = port
 c.NotebookApp.open_browser = False
 c.NotebookApp.quit_button = False
+c.VoilaConfiguration.enable_nbextensions=True
 
 if os.environ.get('JUPYTERHUB_SERVICE_PREFIX'):
     c.NotebookApp.base_url = os.environ.get('JUPYTERHUB_SERVICE_PREFIX')
