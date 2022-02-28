@@ -1,2 +1,5 @@
 {
+    "VoilaConfiguration": {
+        "template": "materialstream"
+    }
 }

@@ -36,6 +36,17 @@ cp /tmp/src/jupyter_kernel_gateway_config.py /opt/app-root/etc/
 cp /tmp/src/httpd-webdav.conf /opt/app-root/etc/
 cp /tmp/src/voila.json /opt/app-root/etc/
 
+# install conda
+curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh && \
+    bash /tmp/miniconda.sh -bfp  /opt/app-root/conda && \
+    rm -rf /tmp/miniconda.sh
+    #conda install -y python=3 && \
+    #conda update conda && \
+    #conda clean --all --yes \
+
+# Enable local conda envs
+#conda init bash
+
 # This S2I assemble script is only used when creating the custom image.
 # For when running the image, or using it as a S2I builder, we use a second
 # set of custom S2I scripts. We now need to move these into the correct
@@ -93,7 +104,7 @@ echo "source /opt/app-root/etc/generate_container_user" >> /opt/app-root/etc/scl
 
 # Install packages required by the proxy process.
 
-(cd /opt/app-root/gateway && source scl_source enable rh-nodejs14 && \
+(cd /opt/app-root/gateway && source scl_source enable rh-nodejs10 && \
     npm install --production)
 
 # Create additional directories.

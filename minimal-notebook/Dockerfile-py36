@@ -21,4 +21,15 @@ LABEL io.k8s.description="S2I builder for custom Jupyter notebooks." \
 
 RUN /tmp/scripts/assemble
 
+# can also be move to assemble
+ARG CONDA_DIR=/opt/app-root/conda
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+RUN conda install -y python=3 && \
+    conda update conda && \
+    conda clean --all --yes && \
+    conda init bash && \
+    conda create --name solar-mach python=3.6 && \
+    conda install --name solar-mach --channel conda-forge voila
+
 CMD [ "/opt/app-root/builder/run" ]

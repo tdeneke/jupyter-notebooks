@@ -87,8 +87,8 @@
                 "source": {
                     "type": "Git",
                     "git": {
-                        "uri": "https://github.com/jupyter-on-openshift/jupyter-notebooks",
-                        "ref": "2.5.1"
+                        "uri": "https://github.com/tdeneke/jupyter-notebooks",
+                        "ref": "develop"
                     },
                     "contextDir": "minimal-notebook"
                 },
@@ -105,7 +105,7 @@
                 "output": {
                     "to": {
                         "kind": "ImageStreamTag",
-                        "name": "s2i-minimal-notebook:3.6"
+                        "name": "s2i-minimal-notebook:develop"
                     }
                 },
                 "resources": {
